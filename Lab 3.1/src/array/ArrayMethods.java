@@ -10,36 +10,27 @@ public class ArrayMethods {
 	
 	
 	public static void main(String[] args) {
-	int [] intArray = {1,2,2,4,2,2};
+	int [] intArray = {1,2,2,4,2,2,2,5,6,2};
 	int [] intArray2 = {2,4,6,8,10};
-	bubbleSort(intArray);
-	//printArray(intArray);
-	printArray(removeDuplicates(intArray));
-	System.out.println(Arrays.deepToString(productArray(intArray,intArray2)));
+	int [] copy = copyArray(intArray);
+	printArray(removeDuplicates(copy));
+	//System.out.println(Arrays.deepToString(productArray(intArray,intArray2)));
+	int [][] triangle = pascalTriangle(5);
+	printPascalTriangle(triangle);
 	}
 	
 	
-	public static int [] removeDuplicates(int [] list) {
-		int j = 0;
-        int i = 1;
-        if(list.length < 2){
-            return list;
-        }
-        while(i < list.length){
-            if(list[i] == list[j]){
-                i++;
-            }
-            else
-            {
-                list[++j] = list[i++];
-            }    
-        }
-        int[] output = new int[j+1];
-        for(int k=0; k<output.length; k++){
-            output[k] = list[k];
-        }
-         
-        return output;
+	public static int[] removeDuplicates(int[] list)
+	{
+		int [] copy = new int[list.length];
+		copy[0] = list[0];
+		for(int i = 1; i < list.length-1; i++) {
+			for(int j = i+1; j < copy.length; j++) {
+				if(copy[j] < list[i]) {
+					
+				}
+			}
+		}
 	}
 	
 	// multiplies the items at each position 
@@ -78,7 +69,31 @@ public class ArrayMethods {
 	}
 	public static void printPascalTriangle(int[][] pTriangle)
 	{
-		
+		int lastRowVal = (pTriangle[pTriangle.length-1].length);
+		for(int i = 0; i < pTriangle.length-1;i++)
+		{
+			int index = lastRowVal - pTriangle[i].length;
+			for(int k = 0; k < index; k++)
+			{
+				System.out.print(" ");
+			}
+			for(int j = 0; j <= pTriangle[i].length-1; j++)
+			{
+				if(j == pTriangle[i].length-1 )
+				{
+					System.out.print(pTriangle[i][j]);
+				}
+				else
+				{
+				System.out.print(pTriangle[i][j]+ " ");
+				}
+			}
+			for(int k = 0; k < index; k++)
+			{
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
 	}
 	
 	
@@ -89,18 +104,16 @@ public class ArrayMethods {
 		System.out.println();
 	}
 	
-	//sorts the array from least to greatest
-	 public static void bubbleSort(int [] list)
-	    {
-	        for (int i = 0; i < list.length-1; i++)
-	            for (int j = 0; j < list.length-1-i-1; j++)
-	                if (list[j] > list[j+1])
-	                {
-	                    int temp = list[j];
-	                    list[j] = list[j+1];
-	                    list[j+1] = temp;
-	                }
-	    }
+
+	public static int[] copyArray(int[] intArray) {
+		int[] copy = new int[intArray.length];
+		
+		for(int i = 0; i < intArray.length; i++) {
+			copy[i] = intArray[i];
+		}
+		return copy;
+	}
+	
 }
 
 
