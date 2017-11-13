@@ -15,22 +15,37 @@ public class ArrayMethods {
 	int [] copy = copyArray(intArray);
 	printArray(removeDuplicates(copy));
 	//System.out.println(Arrays.deepToString(productArray(intArray,intArray2)));
-	int [][] triangle = pascalTriangle(5);
-	printPascalTriangle(triangle);
+	//int [][] triangle = pascalTriangle(5);
+	//printPascalTriangle(triangle);
 	}
 	
 	
-	public static int[] removeDuplicates(int[] list)
-	{
+	public static int[] removeDuplicates(int[] list) {
 		int [] copy = new int[list.length];
 		copy[0] = list[0];
 		for(int i = 1; i < list.length-1; i++) {
-			for(int j = i+1; j < copy.length; j++) {
-				if(copy[j] < list[i]) {
-					
+			for(int j = 0; j < copy.length; j++) {
+				if(list[i] != copy[j]) {
+					copy[i] = list[i];
 				}
+				else 
+					i++;
 			}
 		}
+		int count = 0;
+		for(int i = 0; i < copy.length; i++) {
+			if(copy[i] != 0) {
+				count++;
+			}
+		}
+		int[] copyF = new int[list.length-count];
+		for(int i = 0; i < copyF.length; i++) {
+			if(copy[i] != 0) {
+				copyF[i] = copy[i];
+			}
+				
+		}
+		return copyF;
 	}
 	
 	// multiplies the items at each position 
