@@ -3,7 +3,7 @@ package array;
 import java.util.Arrays;
 /**
  * 
- * @author Jacky Lin, Brandon Channer
+ * @author Jacky Lin, Brandon Channer is cool xddddddddddddddddddddddddddd
  *
  */
 public class ArrayMethods {
@@ -15,8 +15,8 @@ public class ArrayMethods {
 	int [] copy = copyArray(intArray);
 	printArray(removeDuplicates(copy));
 	//System.out.println(Arrays.deepToString(productArray(intArray,intArray2)));
-	//int [][] triangle = pascalTriangle(5);
-	//printPascalTriangle(triangle);
+	int [][] triangle = pascalTriangle(5);
+	printPascalTriangle(triangle);
 	}
 	
 	
@@ -105,36 +105,20 @@ public class ArrayMethods {
 				}
 				else
 				{
+					//in a pascal triangle if you add the two values next to each other on one row, the bottom will be the sum of the two values.
 					triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
 				}
 			}
 		}
 		return triangle;
 	}
-	public static void printPascalTriangle(int[][] pTriangle)
+	public static void printPascalTriangle(int[][] triangle)
 	{
-		int lastRowVal = (pTriangle[pTriangle.length-1].length);
-		for(int i = 0; i < pTriangle.length-1;i++)
+		for (int i = 0; i < triangle.length; i++)
 		{
-			int index = lastRowVal - pTriangle[i].length;
-			for(int k = 0; k < index; k++)
+			for (int t = 0; t < triangle[i].length; t++)
 			{
-				System.out.print(" ");
-			}
-			for(int j = 0; j <= pTriangle[i].length-1; j++)
-			{
-				if(j == pTriangle[i].length-1 )
-				{
-					System.out.print(pTriangle[i][j]);
-				}
-				else
-				{
-				System.out.print(pTriangle[i][j]+ " ");
-				}
-			}
-			for(int k = 0; k < index; k++)
-			{
-				System.out.print(" ");
+				System.out.print(" " + triangle[i][t] + " ");
 			}
 			System.out.println();
 		}
