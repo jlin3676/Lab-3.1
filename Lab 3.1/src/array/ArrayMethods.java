@@ -114,11 +114,16 @@ public class ArrayMethods {
 	}
 	public static void printPascalTriangle(int[][] triangle)
 	{
+		
 		for (int i = 0; i < triangle.length; i++)
 		{
+			int spaces = triangle.length-i;
+			for(int j = spaces; j > 0; j--) {
+				System.out.print(" ");
+			}
 			for (int t = 0; t < triangle[i].length; t++)
 			{
-				System.out.print(" " + triangle[i][t] + " ");
+				System.out.print(triangle[i][t] + " ");
 			}
 			System.out.println();
 		}
